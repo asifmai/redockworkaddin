@@ -4,31 +4,37 @@
  */
 
 
-
-$(document).ready(() => {
-    $('#run').click(run);
-});
-  
 // The initialize function must be run each time a new page is loaded
 Office.initialize = (reason) => {
-    $('#sideload-msg').hide();
-    $('#app-body').show();
+    $(document).ready(async () => {
+        if (!Office.context.requirements.isSetSupported('WordApi', 1.3)) {
+            console.log('Sorry. The add-in uses Word.js APIs version 1.3, that are not available in your version of Office.');
+        };
+
+        $('#run').click(run);
+        $('#input-search').focus();
+        await copyText();
+    });
 };
+
+async function copyText() {
+    return Word.run(async context => {
+        const range = context.document.getSelection();
+        range.load('text');
+        await context.sync();
+        var selectedText = range.text.trim();
+        if (selectedText != '') {
+            $('#input-search').val(selectedText);
+        }
+    })
+}
 
 async function run() {
     return Word.run(async context => {
-            /**
-             * Insert your Word code here
-             */
-            const range = context.document.getSelection();
-            
-            // Read the range text
-            range.load('text');
-
-            // Update font color
-            range.font.color = 'red';
-
-            await context.sync();
-            console.log(`The selected text was ${range.text}.`);
-        });
+        var searchTerm = $('#input-search').val().trim();
+        var searchURL = 'https://app.redock.com/?q=' + searchTerm
+        if (searchTerm != '') {
+            window.open(searchURL);
+        }
+    });
 }

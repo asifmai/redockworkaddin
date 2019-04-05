@@ -13,24 +13,23 @@
 
   <!--Version. Updates from the store only get triggered if there is a version change. -->
   <Version>1.0.0.0</Version>
-  <ProviderName>Raman</ProviderName>
+  <ProviderName>reDock Inc.</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
-  <DisplayName DefaultValue="Raman" />
-  <Description DefaultValue="Raman Description"/>
+  <DisplayName DefaultValue="reDock add-in" />
+  <Description DefaultValue="reDock add-in description"/>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
-  <!--<SupportUrl DefaultValue="[Insert the URL of a page that provides support information for the app]">-->
+  <!-- <SupportUrl DefaultValue="https://www.google.com"> -->
 
   <!-- Domains that will be allowed when navigating. For example, if you use ShowTaskpane and then have an href link, navigation will only be allowed if the domain is on this list. -->
   <AppDomains>
-    <AppDomain>AppDomain1</AppDomain>
-    <AppDomain>AppDomain2</AppDomain>
-    <AppDomain>AppDomain3</AppDomain>
+    <AppDomain>google.com</AppDomain>
+    <AppDomain>Domain2</AppDomain>
   </AppDomains>
   <!--End Basic Settings. -->
 
@@ -59,54 +58,54 @@
           <!--"This code enables a customizable message to be displayed when the add-in is loaded successfully upon individual install."-->
           <GetStarted>
             <!-- Title of the Getting Started callout. resid points to a ShortString resource -->
-            <Title resid="Contoso.GetStarted.Title"/>
+            <Title resid="reDock.GetStarted.Title"/>
 
             <!-- Description of the Getting Started callout. resid points to a LongString resource -->
-            <Description resid="Contoso.GetStarted.Description"/>
+            <Description resid="reDock.GetStarted.Description"/>
 
             <!-- Point to a url resource which details how the add-in should be used. -->
-            <LearnMoreUrl resid="Contoso.GetStarted.LearnMoreUrl"/>
+            <LearnMoreUrl resid="reDock.GetStarted.LearnMoreUrl"/>
           </GetStarted>
           <!-- Function file is a HTML page that includes the JavaScript where functions for ExecuteAction will be called.
             Think of the FunctionFile as the code behind ExecuteFunction. -->
-          <FunctionFile resid="Contoso.DesktopFunctionFile.Url" />
+          <FunctionFile resid="reDock.DesktopFunctionFile.Url" />
 
           <!-- PrimaryCommandSurface is the main Office Ribbon. -->
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <!-- Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab. -->
             <OfficeTab id="TabHome">
               <!-- Ensure you provide a unique id for the group. Recommendation for any IDs is to namespace using your company name. -->
-              <Group id="Contoso.Group1">
+              <Group id="reDock.Group1">
                 <!-- Label for your group. resid must point to a ShortString resource. -->
-                <Label resid="Contoso.Group1Label" />
+                <Label resid="reDock.Group1Label" />
                 <!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
                 <!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
                 <Icon>
-                  <bt:Image size="16" resid="Contoso.tpicon_16x16" />
-                  <bt:Image size="32" resid="Contoso.tpicon_32x32" />
-                  <bt:Image size="80" resid="Contoso.tpicon_80x80" />
+                  <bt:Image size="16" resid="reDock.tpicon_16x16" />
+                  <bt:Image size="32" resid="reDock.tpicon_32x32" />
+                  <bt:Image size="80" resid="reDock.tpicon_80x80" />
                 </Icon>
 
                 <!-- Control. It can be of type "Button" or "Menu". -->
-                <Control xsi:type="Button" id="Contoso.TaskpaneButton">
-                  <Label resid="Contoso.TaskpaneButton.Label" />
+                <Control xsi:type="Button" id="reDock.TaskpaneButton">
+                  <Label resid="reDock.TaskpaneButton.Label" />
                   <Supertip>
                     <!-- ToolTip title. resid must point to a ShortString resource. -->
-                    <Title resid="Contoso.TaskpaneButton.Label" />
+                    <Title resid="reDock.TaskpaneButton.Label" />
                     <!-- ToolTip description. resid must point to a LongString resource. -->
-                    <Description resid="Contoso.TaskpaneButton.Tooltip" />
+                    <Description resid="reDock.TaskpaneButton.Tooltip" />
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="Contoso.tpicon_16x16" />
-                    <bt:Image size="32" resid="Contoso.tpicon_32x32" />
-                    <bt:Image size="80" resid="Contoso.tpicon_80x80" />
+                    <bt:Image size="16" resid="reDock.tpicon_16x16" />
+                    <bt:Image size="32" resid="reDock.tpicon_32x32" />
+                    <bt:Image size="80" resid="reDock.tpicon_80x80" />
                   </Icon>
 
                   <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>ButtonId1</TaskpaneId>
                     <!-- Provide a url resource id for the location that will be displayed on the task pane. -->
-                    <SourceLocation resid="Contoso.Taskpane.Url" />
+                    <SourceLocation resid="reDock.Taskpane.Url" />
                   </Action>
                 </Control>
               </Group>
@@ -114,20 +113,22 @@
           </ExtensionPoint>
           <ExtensionPoint xsi:type="ContextMenu">
             <OfficeMenu id="ContextMenuText">
-              <Control xsi:type="Button" id="FooButtonId">
-                <Label resid="Contoso.ContextMenu.Label" />
+              <Control xsi:type="Button" id="reDockButtonId">
+                <Label resid="reDock.ContextMenu.Label" />
                 <Supertip>
-                  <Title resid="Contoso.ContextMenu.Label" />
-                  <Description resid="Contoso.ContextMenu.Tooltip" />
+                  <Title resid="reDock.ContextMenu.Label" />
+                  <Description resid="reDock.ContextMenu.Tooltip" />
                 </Supertip>
                 <Icon>
-                  <bt:Image size="16" resid="Contoso.tpicon_16x16" />
-                  <bt:Image size="32" resid="Contoso.tpicon_32x32" />
-                  <bt:Image size="80" resid="Contoso.tpicon_80x80" />
+                  <bt:Image size="16" resid="reDock.tpicon_16x16" />
+                  <bt:Image size="32" resid="reDock.tpicon_32x32" />
+                  <bt:Image size="80" resid="reDock.tpicon_80x80" />
                 </Icon>
-                <Action xsi:type="ExecuteFunction">
-                  <FunctionName>writeText</FunctionName>    
-                </Action> 
+                <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <!-- Provide a url resource id for the location that will be displayed on the task pane. -->
+                    <SourceLocation resid="reDock.Taskpane.Url" />
+                  </Action>
               </Control>         
             </OfficeMenu>
           </ExtensionPoint>
@@ -138,29 +139,29 @@
     <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
-        <bt:Image id="Contoso.tpicon_16x16" DefaultValue="https://localhost:3000/assets/icon-16.png" />
-        <bt:Image id="Contoso.tpicon_32x32" DefaultValue="https://localhost:3000/assets/icon-32.png" />
-        <bt:Image id="Contoso.tpicon_80x80" DefaultValue="https://localhost:3000/assets/icon-80.png" />
+        <bt:Image id="reDock.tpicon_16x16" DefaultValue="https://localhost:3000/assets/icon-16.png" />
+        <bt:Image id="reDock.tpicon_32x32" DefaultValue="https://localhost:3000/assets/icon-32.png" />
+        <bt:Image id="reDock.tpicon_80x80" DefaultValue="https://localhost:3000/assets/icon-80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Contoso.Taskpane.Url" DefaultValue="https://localhost:3000/index.html" />
-        <bt:Url id="Contoso.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
-        <bt:Url id="Contoso.DesktopFunctionFile.Url" DefaultValue="https://localhost:3000/function-file/function-file.html" />
+        <bt:Url id="reDock.Taskpane.Url" DefaultValue="https://localhost:3000" />
+        <bt:Url id="reDock.GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812" />
+        <bt:Url id="reDock.DesktopFunctionFile.Url" DefaultValue="https://localhost:3000/function-file/function-file.html" />
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
-        <bt:String id="Contoso.TaskpaneButton.Label" DefaultValue="Foo" />
-        <bt:String id="Contoso.ContextMenu.Label" DefaultValue="Search in Foo" />
-        <bt:String id="Contoso.Group1Label" DefaultValue="Commands Group" />
-        <bt:String id="Contoso.GetStarted.Title" DefaultValue="Get started with your sample add-in!" />
-        <bt:String id="residLabel" DefaultValue="Click Me" />
-        <bt:String id="residToolTip" DefaultValue="I will take you to heaven" />
+        <bt:String id="reDock.TaskpaneButton.Label" DefaultValue="reDock" />
+        <bt:String id="reDock.ContextMenu.Label" DefaultValue="Search in reDock" />
+        <bt:String id="reDock.Group1Label" DefaultValue="reDock Commands" />
+        <bt:String id="reDock.GetStarted.Title" DefaultValue="Get started with reDock add-in!" />
+        <bt:String id="residLabel" DefaultValue="Click here to start" />
+        <bt:String id="residToolTip" DefaultValue="Search the selected text in reDock" />
       </bt:ShortStrings>
       <!-- LongStrings max characters==250. -->
       <bt:LongStrings>
-        <bt:String id="Contoso.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" />
-        <bt:String id="Contoso.ContextMenu.Tooltip" DefaultValue="Click to Show a Taskpane" />
-        <bt:String id="Contoso.GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started." />
+        <bt:String id="reDock.TaskpaneButton.Tooltip" DefaultValue="Goto reDock.com" />
+        <bt:String id="reDock.ContextMenu.Tooltip" DefaultValue="Search with reDock.com" />
+        <bt:String id="reDock.GetStarted.Description" DefaultValue="reDock add-in loaded succesfully. Select some text and click Search in reDock in right click context menu" />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

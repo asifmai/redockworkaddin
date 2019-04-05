@@ -38,9 +38,9 @@ h6 {
 }
 
 .ms-welcome__header {
-    min-height: 250px;
+    /* min-height: 250px; */
     padding: 20px;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: column;
@@ -69,7 +69,7 @@ h6 {
     align-items: center;
     -webkit-flex: 1 0 0;
     flex: 1 0 0;
-    padding: 30px 20px;
+    padding: 20px 20px;
 }
 
 .ms-welcome__main > h2 {
@@ -104,7 +104,7 @@ h6 {
 }
 
 .ms-welcome__action.ms-Button--hero {
-    margin-top: 30px;
+    margin-top: 20px;
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
@@ -126,6 +126,12 @@ h6 {
 
 .ms-welcome__action.ms-Button--hero:hover .ms-Button-icon .ms-Icon {
     border: none;
+}
+
+#input-search{
+    margin-top: 20px;
+    width: calc(100vw - 50px);
+    min-width: unset;
 }
 
 @media (min-width: 0) and (max-width: 350px) {
